@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(gh repo:*)",
+      "Bash(git remote:*)",
+      "Bash(git branch:*)",
+      "Bash(git push:*)",
+      "Bash(git config:*)",
+      "Bash(ls public/tarot/*.png)",
+      "Bash(xargs -n1 basename)",
+      "Bash(git lfs:*)",
+      "Bash(brew install:*)",
+      "Bash(ls -lh public/tarot/*.png)",
+      "Bash(ls -lh public/tarot/*.jpg)",
+      "Bash(ls public/tarot/*.jpg)"
+    ]
+  }
+}
