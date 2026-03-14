@@ -16,7 +16,9 @@
       "Bash(brew install:*)",
       "Bash(ls -lh public/tarot/*.png)",
       "Bash(ls -lh public/tarot/*.jpg)",
-      "Bash(ls public/tarot/*.jpg)"
+      "Bash(ls public/tarot/*.jpg)",
+      "Bash(npm run:*)",
+      "WebFetch(domain:www.chanyue.fun)"
     ]
   }
 }

@@ -14,7 +14,7 @@
             <img src="/back.png" alt="塔罗牌背面">
           </div>
           <div class="card-front">
-            <img :src="`/tarot/${card.name}`" :alt="card.name">
+            <img :src="`/tarot/${encodeURIComponent(card.name)}`" :alt="card.name">
           </div>
         </div>
       </div>
