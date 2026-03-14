@@ -1,5 +1,15 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "framework": "vite"
+  "framework": "vite",
+  "routes": [
+    {
+      "src": "/tarot/(.*)",
+      "dest": "/tarot/$1"
+    },
+    {
+      "src": "/back.png",
+      "dest": "/back.png"
+    }
+  ]
 }
