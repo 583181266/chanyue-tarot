@@ -28,12 +28,14 @@
 import { ref } from 'vue'
 import backImage from '../assets/back.png'
 
-const cardImages = import.meta.glob('../assets/tarot/*.jpg', { eager: true, import: 'default' })
+const cardImages = import.meta.glob('../assets/tarot/*.jpg', { eager: true, as: 'url' })
 
 const cards = Object.entries(cardImages).map(([path, url]) => {
   const fileName = path.split('/').pop()
   return { name: fileName, url }
 })
+
+console.log('Loaded cards:', cards.length)
 
 const drawn = ref(false)
 const drawnCards = ref([])
