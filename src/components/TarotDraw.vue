@@ -26,13 +26,15 @@
 
 <script setup>
 import { ref } from 'vue'
-import blobUrls from '../blob-urls.json'
+import backImg from '../assets/back.png'
 
-const backImage = blobUrls['back.png'] || '/back.png'
+const backImage = backImg
 
-const cards = Object.entries(blobUrls)
-  .filter(([name]) => name !== 'back.png')
-  .map(([name, url]) => ({ name, url }))
+const tarotImages = import.meta.glob('../assets/tarot/*.jpg', { eager: true, import: 'default' })
+const cards = Object.entries(tarotImages).map(([path, url]) => {
+  const name = path.split('/').pop()
+  return { name, url }
+})
 
 console.log('Loaded cards:', cards.length)
 
