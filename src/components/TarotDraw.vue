@@ -17,10 +17,13 @@
             <img :src="backImage" alt="塔罗牌背面">
           </div>
           <div class="card-front">
-            <img :src="card.url" :alt="card.name">
+            <img :src="card.url" :alt="card.name" :class="{ reversed: card.reversed }">
           </div>
         </div>
-        <p class="card-label">{{ ['过去', '现在', '未来'][index] }}</p>
+        <p class="card-label">
+          {{ ['过去', '现在', '未来'][index] }}
+          <span v-if="card.flipped && card.reversed" class="reversed-tag">逆位</span>
+        </p>
       </div>
     </div>
 
@@ -66,7 +69,11 @@ const drawnCards = ref([])
 
 const drawCards = () => {
   const shuffled = [...cards].sort(() => Math.random() - 0.5)
-  drawnCards.value = shuffled.slice(0, 3).map(card => ({ ...card, flipped: false }))
+  drawnCards.value = shuffled.slice(0, 3).map(card => ({ 
+    ...card, 
+    flipped: false,
+    reversed: Math.random() < 0.5  // 50% 概率逆位
+  }))
   drawn.value = true
 }
 
@@ -186,6 +193,11 @@ h2 {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.card-front img.reversed {
+  transform: rotate(180deg);
 }
 
 .card-label {
@@ -193,6 +205,13 @@ h2 {
   color: var(--accent-gold);
   font-size: 1rem;
   letter-spacing: 0.1rem;
+}
+
+.reversed-tag {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--accent-purple);
+  margin-top: 0.3rem;
 }
 
 @media (max-width: 768px) {
