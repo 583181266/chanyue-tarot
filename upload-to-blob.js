@@ -23,7 +23,7 @@ async function uploadImages() {
     const fileBuffer = await readFile(filePath);
 
     const blob = await put(file, fileBuffer, {
-      access: 'public',
+      access: 'private',
       token: BLOB_TOKEN,
     });
 
@@ -34,7 +34,7 @@ async function uploadImages() {
   // 上传背面图片
   const backBuffer = await readFile('src/assets/back.png');
   const backBlob = await put('back.png', backBuffer, {
-    access: 'public',
+    access: 'private',
     token: BLOB_TOKEN,
   });
 

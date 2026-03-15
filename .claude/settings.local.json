@@ -18,7 +18,10 @@
       "Bash(ls -lh public/tarot/*.jpg)",
       "Bash(ls public/tarot/*.jpg)",
       "Bash(npm run:*)",
-      "WebFetch(domain:www.chanyue.fun)"
+      "WebFetch(domain:www.chanyue.fun)",
+      "Bash(BLOB_READ_WRITE_TOKEN=\"vercel_blob_rw_9gakCvhdYcKb3oId_Zg79kPwl8TLZ1yHBm85NQBTKS7uUs7\" node upload-to-blob.js)",
+      "WebFetch(domain:github.com)",
+      "WebSearch"
     ]
   }
 }
