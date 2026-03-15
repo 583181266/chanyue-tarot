@@ -1,9 +1,12 @@
 <template>
   <section id="draw" class="tarot-draw">
-    <h2>塔罗抽牌</h2>
-    <p class="desc">静心冥想，点击开始抽取三张牌</p>
+    <h2>✦ 塔罗抽牌 ✦</h2>
+    <p class="desc">静心冥想，聆听内心的声音</p>
 
-    <button v-if="!drawn" @click="drawCards" class="draw-btn">开始抽牌</button>
+    <button v-if="!drawn" @click="drawCards" class="draw-btn">
+      <span class="btn-icon">🔮</span>
+      开始抽牌
+    </button>
 
     <div v-if="drawn" class="cards">
       <div v-for="(card, index) in drawnCards" :key="index"
@@ -17,10 +20,14 @@
             <img :src="card.url" :alt="card.name">
           </div>
         </div>
+        <p class="card-label">{{ ['过去', '现在', '未来'][index] }}</p>
       </div>
     </div>
 
-    <button v-if="drawn" @click="reset" class="reset-btn">重新抽牌</button>
+    <button v-if="drawn" @click="reset" class="reset-btn">
+      <span class="btn-icon">↻</span>
+      重新抽牌
+    </button>
   </section>
 </template>
 
@@ -54,8 +61,6 @@ const cards = tarotFiles.map(name => ({
   url: `/tarot/${name}`
 }))
 
-console.log('Loaded cards:', cards.length)
-
 const drawn = ref(false)
 const drawnCards = ref([])
 
@@ -77,37 +82,47 @@ const reset = () => {
 
 <style scoped>
 .tarot-draw {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 80px 2rem;
+  background: linear-gradient(180deg, #0a0a15 0%, #1a1a2e 100%);
+  padding: 80px 1.5rem;
   text-align: center;
+  min-height: 100vh;
 }
 
 h2 {
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin-bottom: 1rem;
-  color: #1a1a2e;
+  color: var(--accent-gold);
+  letter-spacing: 0.1rem;
 }
 
 .desc {
   font-size: 1.1rem;
-  color: #555;
-  margin-bottom: 2rem;
+  color: var(--text-muted);
+  margin-bottom: 3rem;
 }
 
 .draw-btn, .reset-btn {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-  color: #d4af37;
+  background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+  color: white;
   border: none;
   padding: 1rem 3rem;
   font-size: 1.2rem;
   border-radius: 50px;
   cursor: pointer;
-  transition: transform 0.3s;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(107, 76, 154, 0.4);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .draw-btn:hover, .reset-btn:hover {
-  transform: scale(1.05);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(107, 76, 154, 0.6);
+}
+
+.btn-icon {
+  font-size: 1.3rem;
 }
 
 .reset-btn {
@@ -118,13 +133,14 @@ h2 {
   display: flex;
   justify-content: center;
   gap: 2rem;
-  margin: 3rem 0;
+  margin: 3rem auto;
   flex-wrap: wrap;
+  max-width: 800px;
 }
 
 .card {
-  width: 200px;
-  height: 350px;
+  width: 180px;
+  height: 300px;
   perspective: 1000px;
   cursor: pointer;
 }
@@ -133,7 +149,7 @@ h2 {
   position: relative;
   width: 100%;
   height: 100%;
-  transition: transform 0.6s;
+  transition: transform 0.8s;
   transform-style: preserve-3d;
 }
 
@@ -147,18 +163,16 @@ h2 {
   height: 100%;
   backface-visibility: hidden;
   border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
 }
 
 .card-back {
-  background: #1a1a2e;
-  overflow: hidden;
+  background: linear-gradient(135deg, #1a1a2e, #2d1b4e);
+  border: 2px solid var(--accent-gold);
 }
 
 .card-back img {
-  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -167,18 +181,61 @@ h2 {
 .card-front {
   background: #fff;
   transform: rotateY(180deg);
-  padding: 0;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  overflow: hidden;
 }
 
 .card-front img {
-  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
+.card-label {
+  margin-top: 1rem;
+  color: var(--accent-gold);
+  font-size: 1rem;
+  letter-spacing: 0.1rem;
+}
+
+@media (max-width: 768px) {
+  .tarot-draw {
+    padding: 60px 1rem;
+  }
+  
+  h2 {
+    font-size: 1.6rem;
+  }
+  
+  .desc {
+    font-size: 1rem;
+  }
+  
+  .draw-btn, .reset-btn {
+    padding: 0.9rem 2rem;
+    font-size: 1.1rem;
+  }
+  
+  .cards {
+    gap: 1.5rem;
+  }
+  
+  .card {
+    width: 140px;
+    height: 240px;
+  }
+  
+  .card-label {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cards {
+    gap: 1rem;
+  }
+  
+  .card {
+    width: 100px;
+    height: 170px;
+  }
+}
 </style>
-
-
-

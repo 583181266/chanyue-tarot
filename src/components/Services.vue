@@ -1,9 +1,10 @@
 <template>
   <section id="services" class="services">
-    <h2>服务项目</h2>
+    <h2>✦ 服务项目 ✦</h2>
     <div class="service-grid">
       <div v-for="service in services" :key="service.title" class="service-card">
-        <h3>{{ service.icon }} {{ service.title }}</h3>
+        <div class="icon">{{ service.icon }}</div>
+        <h3>{{ service.title }}</h3>
         <p>{{ service.desc }}</p>
       </div>
     </div>
@@ -20,39 +21,74 @@ const services = [
 
 <style scoped>
 .services {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 80px 2rem;
-  text-align: center;
+  background: #0a0a15;
+  padding: 80px 1.5rem;
 }
 
 h2 {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  color: #1a1a2e;
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  color: var(--accent-gold);
+  text-align: center;
+  letter-spacing: 0.1rem;
 }
 
 .service-grid {
+  max-width: 1000px;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
-  margin-top: 3rem;
 }
 
 .service-card {
-  background: #f8f9fa;
-  padding: 2rem;
-  border-radius: 10px;
-  transition: transform 0.3s;
+  background: linear-gradient(135deg, rgba(26, 26, 46, 0.8), rgba(45, 27, 78, 0.6));
+  padding: 2.5rem 1.5rem;
+  border-radius: 15px;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  transition: all 0.3s;
+  text-align: center;
 }
 
 .service-card:hover {
   transform: translateY(-10px);
+  border-color: var(--accent-gold);
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+}
+
+.icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
 }
 
 .service-card h3 {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   margin-bottom: 1rem;
-  color: #1a1a2e;
+  color: var(--accent-gold);
+}
+
+.service-card p {
+  color: var(--text-light);
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .services {
+    padding: 60px 1.5rem;
+  }
+  
+  h2 {
+    font-size: 1.6rem;
+  }
+  
+  .service-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .service-card {
+    padding: 2rem 1.5rem;
+  }
 }
 </style>
