@@ -216,7 +216,7 @@ h2 {
 
 @media (max-width: 768px) {
   .tarot-draw {
-    padding: 60px 1rem;
+    padding: 60px 1rem 80px;
   }
   
   h2 {
@@ -225,6 +225,7 @@ h2 {
   
   .desc {
     font-size: 1rem;
+    margin-bottom: 2rem;
   }
   
   .draw-btn, .reset-btn {
@@ -234,11 +235,13 @@ h2 {
   
   .cards {
     gap: 1.5rem;
+    margin: 2rem auto 3rem;
   }
   
   .card {
     width: 140px;
     height: 240px;
+    margin-bottom: 2.5rem;
   }
   
   .card-label {
@@ -247,13 +250,27 @@ h2 {
 }
 
 @media (max-width: 480px) {
+  .tarot-draw {
+    padding: 50px 1rem 70px;
+  }
+  
   .cards {
-    gap: 1rem;
+    gap: 0.8rem;
+    margin: 1.5rem auto 2.5rem;
   }
   
   .card {
-    width: 100px;
-    height: 170px;
+    width: 90px;
+    height: 150px;
+    margin-bottom: 2rem;
+  }
+  
+  .card-label {
+    font-size: 0.85rem;
+  }
+  
+  .reversed-tag {
+    font-size: 0.75rem;
   }
 }
 </style>
