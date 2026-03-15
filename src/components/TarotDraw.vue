@@ -26,15 +26,33 @@
 
 <script setup>
 import { ref } from 'vue'
-import backImg from '../assets/back.png'
 
-const backImage = backImg
+const backImage = '/back.png'
 
-const tarotImages = import.meta.glob('../assets/tarot/*.jpg', { eager: true, import: 'default' })
-const cards = Object.entries(tarotImages).map(([path, url]) => {
-  const name = path.split('/').pop()
-  return { name, url }
-})
+const tarotFiles = [
+  '00愚者.jpg', '01魔术师.jpg', '02女祭祀.jpg', '03皇后.jpg', '04皇帝.jpg',
+  '05教皇.jpg', '06恋人.jpg', '07战车.jpg', '08力量.jpg', '09隐士.jpg',
+  '10命运之轮.jpg', '11正义.jpg', '12倒吊人.jpg', '13死神.jpg', '14节制.jpg',
+  '15恶魔.jpg', '16高塔.jpg', '17星星.jpg', '18月亮.jpg', '19太阳.jpg',
+  '20审判.jpg', '21世界.jpg',
+  '权杖1.jpg', '权杖2.jpg', '权杖3.jpg', '权杖4.jpg', '权杖5.jpg',
+  '权杖6.jpg', '权杖7.jpg', '权杖8.jpg', '权杖9.jpg', '权杖10.jpg',
+  '权杖侍从.jpg', '权杖骑士.jpg', '权杖王后.jpg', '权杖国王.jpg',
+  '圣杯1.jpg', '圣杯2.jpg', '圣杯3.jpg', '圣杯4.jpg', '圣杯5.jpg',
+  '圣杯6.jpg', '圣杯7.jpg', '圣杯8.jpg', '圣杯9.jpg', '圣杯10.jpg',
+  '圣杯侍从.jpg', '圣杯骑士.jpg', '圣杯王后.jpg', '圣杯国王.jpg',
+  '宝剑1.jpg', '宝剑2.jpg', '宝剑3.jpg', '宝剑4.jpg', '宝剑5.jpg',
+  '宝剑6.jpg', '宝剑7.jpg', '宝剑8.jpg', '宝剑9.jpg', '宝剑10.jpg',
+  '宝剑侍从.jpg', '宝剑骑士.jpg', '宝剑王后.jpg', '宝剑国王.jpg',
+  '星币1.jpg', '星币2.jpg', '星币3.jpg', '星币4.jpg', '星币5.jpg',
+  '星币6.jpg', '星币7.jpg', '星币8.jpg', '星币9.jpg', '星币10.jpg',
+  '星币侍从.jpg', '星币骑士.jpg', '星币王后.jpg', '星币国王.jpg'
+]
+
+const cards = tarotFiles.map(name => ({
+  name,
+  url: `/tarot/${name}`
+}))
 
 console.log('Loaded cards:', cards.length)
 
