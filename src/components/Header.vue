@@ -1,7 +1,7 @@
 <template>
   <header>
     <nav>
-      <div class="logo">✨ 禅月塔罗</div>
+      <div class="logo">🌙 禅月塔罗</div>
       <button class="menu-toggle" @click="toggleMenu">☰</button>
       <ul :class="{ active: menuOpen }">
         <li><a href="#about" @click="closeMenu">关于我们</a></li>
