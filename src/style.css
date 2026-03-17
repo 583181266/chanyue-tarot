@@ -7,8 +7,9 @@
 body {
   font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
   line-height: 1.6;
-  color: #2d2d3d;
-  background: #0a0a15;
+  color: var(--text-light);
+  background: var(--primary-dark);
+  overflow-x: hidden;
 }
 
 html {
@@ -23,4 +24,26 @@ html {
   --accent-blue: #4a5f8f;
   --text-light: #e8e8f0;
   --text-muted: #a8a8b8;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--primary-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-purple);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-gold);
 }

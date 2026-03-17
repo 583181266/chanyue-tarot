@@ -1,6 +1,5 @@
 <template>
   <section class="hero">
-    <div class="stars"></div>
     <div class="hero-content">
       <div class="moon">🌙</div>
       <h1>禅月塔罗</h1>
@@ -13,7 +12,7 @@
 
 <style scoped>
 .hero {
-  background: linear-gradient(135deg, #0a0a15 0%, #1a1a2e 50%, #2d1b4e 100%);
+  background: transparent;
   color: var(--text-light);
   text-align: center;
   padding: 120px 1.5rem 80px;

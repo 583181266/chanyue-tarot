@@ -6,11 +6,13 @@
 
 <style scoped>
 footer {
-  background: #0a0a15;
+  background: transparent;
   color: var(--text-muted);
   text-align: center;
   padding: 2rem;
   border-top: 1px solid rgba(212, 175, 55, 0.2);
+  position: relative;
+  z-index: 1;
 }
 
 footer p {

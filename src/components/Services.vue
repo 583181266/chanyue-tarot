@@ -21,8 +21,10 @@ const services = [
 
 <style scoped>
 .services {
-  background: #0a0a15;
+  background: transparent;
   padding: 80px 1.5rem;
+  position: relative;
+  z-index: 1;
 }
 
 h2 {

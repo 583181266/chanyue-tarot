@@ -9,8 +9,10 @@
 
 <style scoped>
 .about {
-  background: linear-gradient(180deg, #1a1a2e 0%, #0a0a15 100%);
+  background: transparent;
   padding: 80px 1.5rem;
+  position: relative;
+  z-index: 1;
 }
 
 .container {
