@@ -112,7 +112,7 @@ defineEmits(['restart', 'home'])
 
 .card-reversed {
   color: #e74c3c;
-  font-size: 0.75rem;
+  font-size: 0.85rem;
 }
 
 /* 单张居中 */
@@ -221,11 +221,13 @@ defineEmits(['restart', 'home'])
   .celtic-grid .card-img-wrap { width: 60px; height: 100px; }
   .card-pos { font-size: 0.7rem; }
   .card-name { font-size: 0.7rem; }
+  .card-reversed { font-size: 0.7rem; }
 }
 
 @media (max-width: 480px) {
   .celtic-grid .card-img-wrap { width: 48px; height: 80px; }
   .card-pos { font-size: 0.6rem; }
   .card-name { font-size: 0.6rem; }
+  .card-reversed { font-size: 0.6rem; }
 }
 </style>
